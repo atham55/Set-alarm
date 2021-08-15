@@ -1,0 +1,42 @@
+import time
+import winsound
+from tkinter import*
+import datetime
+import time
+import playsound
+root=Tk()
+root.title('SET ALARM')
+root.geometry('500x500')
+
+def click():
+    while True :
+        track = f'{x.get()}:{y.get()}:{z.get()}'
+        d = datetime.datetime.now()
+        timer = d.strftime('%H:%M:%S')
+
+        if track==timer:
+           winsound.Beep(5000,2000)
+           break
+
+x=StringVar()
+y=StringVar()
+z=StringVar()
+
+a=Label(root,bd=20,text='HOURS')
+a.grid(row=1,column=2,sticky=W)
+a1=Label(root,bd=20,text='MINUTES')
+a1.grid(row=3,column=2,sticky=W)
+a2=Label(root,bd=20,text='SECOND')
+a2.grid(row=5,column=2,sticky=W)
+b=Entry(root,bd=20,bg='powder blue',text=x)
+b.grid(row=1,column=4)
+b1=Entry(root,bd=20,bg='powder blue',text=y)
+b1.grid(row=3,column=4)
+b2=Entry(root,bd=20,bg='powder blue',text=z)
+b2.grid(row=5,column=4)
+c=Button(root,text='set alarm time',bd=15,width=15,bg='green',command=click)
+c.grid(row=9,column=7,sticky=W)
+
+root.mainloop()
+
+
